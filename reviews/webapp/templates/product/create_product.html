@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block title %}Создать товар{% endblock %}
+
+{% block body %}
+    <form action="{% url 'webapp:create_product' %}" method="post" enctype="multipart/form-data">
+        {% include 'partial/simple_form.html' with button_text='Создать' %}
+    </form>
+{% endblock %}
