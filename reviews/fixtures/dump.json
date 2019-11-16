@@ -1,0 +1,112 @@
+[
+{
+  "model": "webapp.product",
+  "pk": 1,
+  "fields": {
+    "name": "HP Probook 450",
+    "category": "hardware",
+    "description": "HP Probook 450 G5 Intel Core i5-8250U (4\u044f\u0434\u0440\u0430/8\u043f\u043e\u0442\u043e\u043a\u043e\u0432, up to 3.4Ghz), 32GB DDR4, 500GB SSD, Nvidia Geforce 930MX 2GB, 15.6\" LED HD, WiFi, BT, HD WebCam, UltraSlim, Eng-Rus",
+    "photo": "product_images/hp.jpeg"
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 2,
+  "fields": {
+    "name": "\u0410\u043d\u0442\u0438\u0432\u0438\u0440\u0443\u0441 DrWEB",
+    "category": "software",
+    "description": "\u0410\u043d\u0442\u0438\u0432\u0438\u0440\u0443\u0441 DrWEB 1\u043f\u043a 1\u0433\u043e\u0434",
+    "photo": "product_images/drweb.jpg"
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 3,
+  "fields": {
+    "name": "iPhone XS Max",
+    "category": "phones",
+    "description": "\u041f\u0440\u043e\u0438\u0437\u0432\u043e\u0434\u0438\u0442\u0435\u043b\u044c\tApple\r\n\u0426\u0432\u0435\u0442\tSilver\r\n\u041e\u043f\u0435\u0440\u0430\u0446\u0438\u043e\u043d\u043d\u0430\u044f \u0441\u0438\u0441\u0442\u0435\u043c\u0430\tiOS 12\r\n\u0414\u0430\u0442\u0430 \u0432\u044b\u043f\u0443\u0441\u043a\u0430\t12 \u0441\u0435\u043d\u0442\u044f\u0431\u0440\u044f 2018\r\n\u041f\u0430\u043c\u044f\u0442\u044c\t64Gb\r\n\u0413\u0430\u0440\u0430\u043d\u0442\u0438\u044f (\u043c\u0435\u0441\u044f\u0446\u0435\u0432)\t12\r\n\u041f\u0440\u043e\u0446\u0435\u0441\u0441\u043e\u0440\tApple A12 Bionic",
+    "photo": "product_images/iphone.jpeg"
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 4,
+  "fields": {
+    "name": "\u041d\u0435\u0438\u0437\u0432\u0435\u0441\u0442\u043d\u044b\u0439 \u0442\u043e\u0432\u0430\u0440",
+    "category": "other",
+    "description": "",
+    "photo": ""
+  }
+},
+{
+  "model": "webapp.review",
+  "pk": 1,
+  "fields": {
+    "author": 1,
+    "product": 1,
+    "description": "\u041e\u0442\u043b\u0438\u0447\u043d\u044b\u0439 \u043d\u043e\u0443\u0442\u0431\u0443\u043a.",
+    "rating": 5
+  }
+},
+{
+  "model": "webapp.review",
+  "pk": 2,
+  "fields": {
+    "author": 1,
+    "product": 2,
+    "description": "\u041d\u0438\u0444\u0438\u0433\u0430 \u043d\u0435 \u0437\u0430\u0449\u0438\u0437\u0430\u0435\u0442,\r\n\u043f\u0440\u043e\u0444\u0443\u043a\u0430\u043b \u0432\u0438\u0440\u0443\u0441, \u043a\u043e\u0442\u043e\u0440\u044b\u0439 \u0437\u0430\u0448\u0438\u0444\u0440\u043e\u0432\u0430\u043b \u043c\u043e\u044e \u043f\u0430\u043f\u043a\u0443 \u0441 \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u0430\u043c\u0438.",
+    "rating": 1
+  }
+},
+{
+  "model": "webapp.review",
+  "pk": 3,
+  "fields": {
+    "author": 1,
+    "product": 3,
+    "description": "\u041a\u043b\u0430\u0441\u0441\u043d\u044b\u0439 \u0442\u0435\u043b\u0435\u0444\u043e\u043d, \u043d\u043e \u043e\u0447\u0435\u043d\u044c \u0434\u043e\u0440\u043e\u0433\u043e\u0439, \u0437\u0430 \u044d\u0442\u043e \u0441\u043d\u0438\u0436\u0443 \u0431\u0430\u043b.",
+    "rating": 4
+  }
+},
+{
+  "model": "webapp.review",
+  "pk": 4,
+  "fields": {
+    "author": 1,
+    "product": 4,
+    "description": "\u041f\u0440\u043e\u0441\u0442\u043e \u043a\u043e\u043c\u043c\u0435\u043d\u0442\u0430\u0440\u0438\u0439",
+    "rating": 3
+  }
+},
+{
+  "model": "webapp.review",
+  "pk": 5,
+  "fields": {
+    "author": 1,
+    "product": 1,
+    "description": "\u041f\u043e\u043b\u044c\u0437\u0443\u044e\u0441\u044c \u0442\u0430\u043a\u0438\u043c \u0443\u0436\u0435 \u0433\u043e\u0434, \u043f\u043e\u043b\u0435\u0442 \u043d\u043e\u0440\u043c\u0430\u043b\u044c\u043d\u044b\u0439.",
+    "rating": 5
+  }
+},
+{
+  "model": "webapp.review",
+  "pk": 6,
+  "fields": {
+    "author": 1,
+    "product": 1,
+    "description": "\u0424\u0438\u0433\u043d\u044f \u0432\u0441\u0435 \u044d\u0442\u043e macbook \u0440\u0443\u043b\u0438\u0442.",
+    "rating": 1
+  }
+},
+{
+  "model": "webapp.review",
+  "pk": 7,
+  "fields": {
+    "author": 1,
+    "product": 2,
+    "description": "\u041f\u043e\u0439\u0434\u0435\u0442 \u0438 \u0446\u0435\u043d\u0430 \u043d\u043e\u0440\u043c\u0430\u043b\u044c\u043d\u0430\u044f.",
+    "rating": 5
+  }
+}
+]
