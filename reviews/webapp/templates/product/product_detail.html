@@ -30,10 +30,9 @@
 
         <h3 class="mt-4">Отзывы</h3>
         {% for review in product.reviews.all %}
-
             <div class="card mb-2">
                 <div class="card-header">
-                    <small>Автор:</small> {{ review.author }} - <small>email:</small> {{ review.author.email }}
+                    <small>Автор:</small> <a href="{% url 'accounts:user_detail' review.author.pk %}">{{ review.author }}</a> - <small>email:</small> {{ review.author.email }}
                 </div>
                 <div class="card-body">
                     <h5 class="card-title">{{ review.description }}</h5>
