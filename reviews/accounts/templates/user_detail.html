@@ -27,7 +27,7 @@
         <a href="{% url 'accounts:user_change_password' user_obj.pk %}" class="btn btn-secondary">Сменить пароль</a>
     {% endif %}
 
-    <h3 class="mt-4">Ваши отзывы</h3>
+    <h3 class="mt-4">Отзывы</h3>
         {% for review in user_obj.reviews.all %}
             <div class="card mb-2">
                 <div class="card-header">

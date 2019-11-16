@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin, UserPassesTestMixin
 from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse, reverse_lazy
 from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
@@ -13,10 +14,12 @@ class IndexView(ListView):
     ordering = ['name']
 
 
-class ProductCreateView(CreateView):
+class ProductCreateView(PermissionRequiredMixin, CreateView):
     template_name = 'product/create_product.html'
     model = Product
     form_class = ProductForm
+    permission_required = 'webapp.add_product'
+    permission_denied_message = "Доступ запрещён"
 
     def get_success_url(self):
         return reverse('webapp:index')
@@ -28,7 +31,7 @@ class ProjectDetailView(DetailView):
     context_key = 'product'
 
 
-class ProductUpdateView(UpdateView):
+class ProductUpdateView(PermissionRequiredMixin, UpdateView):
     model = Product
     class_form = ProductForm
     template_name = 'product/update_product.html'
@@ -39,12 +42,12 @@ class ProductUpdateView(UpdateView):
         return reverse('webapp:index')
 
 
-class ProductDeleteView(DeleteView):
+class ProductDeleteView(PermissionRequiredMixin, DeleteView):
     model = Product
     success_url = reverse_lazy('webapp:index')
 
 
-class AddReviewProduct(CreateView):
+class AddReviewProduct(LoginRequiredMixin, CreateView):
     template_name = 'review/create_review.html'
     form_class = ReviewProductForm
     context_object_name = 'product'
@@ -56,19 +59,33 @@ class AddReviewProduct(CreateView):
         return redirect('webapp:detail_product', pk=product_pk)
 
 
-class UpdateReviewProduct(UpdateView):
+class UpdateReviewProduct(UserPassesTestMixin, UpdateView):
     model = Review
     class_form = ReviewProductForm
     template_name = 'review/update_review.html'
     context_object_name = 'product'
     fields = ['description', 'rating']
+    permission_required = 'webapp.change_review'
+    permission_denied_message = "Доступ запрещён"
+
+    def test_func(self):
+        review_pk = self.kwargs.get('pk')
+        review = Review.objects.get(pk=review_pk)
+        return self.request.user == review.author or self.request.user.has_perm('webapp.change_review')
 
     def get_success_url(self):
         return reverse('webapp:detail_product', kwargs={'pk': self.object.product.pk})
 
 
-class DeleteReviewProduct(DeleteView):
+class DeleteReviewProduct(UserPassesTestMixin, DeleteView):
     model = Review
+    permission_required = 'webapp.delete_review'
+    permission_denied_message = "Доступ запрещён"
+
+    def test_func(self):
+        review_pk = self.kwargs.get('pk')
+        review = Review.objects.get(pk=review_pk)
+        return self.request.user == review.author or self.request.user.has_perm('webapp.change_review')
 
     def get(self, request, *args, **kwargs):
         return self.delete(request, *args, **kwargs)
