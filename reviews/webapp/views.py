@@ -37,6 +37,8 @@ class ProductUpdateView(PermissionRequiredMixin, UpdateView):
     template_name = 'product/update_product.html'
     context_object_name = 'product'
     fields = ['name', 'category', 'description', 'photo']
+    permission_required = 'webapp.change_product'
+    permission_denied_message = "Доступ запрещён"
 
     def get_success_url(self):
         return reverse('webapp:index')
@@ -45,6 +47,8 @@ class ProductUpdateView(PermissionRequiredMixin, UpdateView):
 class ProductDeleteView(PermissionRequiredMixin, DeleteView):
     model = Product
     success_url = reverse_lazy('webapp:index')
+    permission_required = 'webapp.delete_product'
+    permission_denied_message = "Доступ запрещён"
 
 
 class AddReviewProduct(LoginRequiredMixin, CreateView):
